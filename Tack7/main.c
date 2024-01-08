@@ -22,7 +22,7 @@ int m[amount];
     return 0;
 }
 */
-/* Задача 2 */
+/* Задача 2
 
 #include <stdio.h>
 
@@ -39,3 +39,40 @@ int min = m[0];
             min = m[i];
     printf("%d\n", min);
 return 0; }
+*/
+/* Задача 3 */
+
+#include <stdio.h>
+
+int Input(int array[], int n)
+{
+int i;
+    for(i = 0; i < n; i++)
+        scanf("%d",&array[i]);
+return i; }
+void Print(int array[], int len)
+{
+    for (int i = 0; i < len; i++)
+    printf("%d ",array[i]);
+    printf("\n");
+}
+
+void Right_shift (int array[], int len)
+{
+int temp;
+    temp = array[len - 1];
+    for (int i = len - 1; i > 0; i--)
+        array[i] = array[i - 1];
+    array[0] = temp;
+}
+int main(int argc, const char * argv[])
+{
+enum {BUFFER_SIZE = 12};
+int  buffer[BUFFER_SIZE];
+    Input(buffer,BUFFER_SIZE);
+    for(int i=0;i<4;i++)
+        Right_shift(buffer,BUFFER_SIZE);
+    Print(buffer,BUFFER_SIZE);
+    printf("\n");
+    return 0;
+}
