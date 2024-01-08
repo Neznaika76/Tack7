@@ -40,7 +40,7 @@ int min = m[0];
     printf("%d\n", min);
 return 0; }
 */
-/* Задача 3 */
+/* Задача 3
 
 #include <stdio.h>
 
@@ -73,6 +73,42 @@ int  buffer[BUFFER_SIZE];
     for(int i=0;i<4;i++)
         Right_shift(buffer,BUFFER_SIZE);
     Print(buffer,BUFFER_SIZE);
+    printf("\n");
+    return 0;
+}
+*/
+/* Задача 4 */
+#include <stdio.h>
+
+void aPrint(int *array, int len)
+{
+    for (int i = 0; i < len; i++)
+    printf("%d ",array[i]);;
+}
+void aSort(int* array,int n)
+{
+    int i,j;
+    for(i = 0; i < n; ++i)
+    {
+        for(j = i; j < n; ++j)
+        {
+            if(array[i]%10 > array[j]%10)
+            {
+                int temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+        }
+    }
+}
+int main(int argc, const char * argv[])
+{
+    enum {aSize = 10};
+    int array[aSize] = {0};
+    for(int i=0; i < aSize; i++)
+        scanf("%d", &array[i]);
+    aSort(array, aSize);
+    aPrint(array, aSize);
     printf("\n");
     return 0;
 }
