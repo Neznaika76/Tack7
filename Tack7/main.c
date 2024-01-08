@@ -77,7 +77,7 @@ int  buffer[BUFFER_SIZE];
     return 0;
 }
 */
-/* Задача 4 */
+/* Задача 4
 #include <stdio.h>
 
 void aPrint(int *array, int len)
@@ -109,6 +109,39 @@ int main(int argc, const char * argv[])
         scanf("%d", &array[i]);
     aSort(array, aSize);
     aPrint(array, aSize);
+    printf("\n");
+    return 0;
+}
+*/
+/* Задача 5 */
+
+#include <stdio.h>
+void aPrint(int *array, int len)
+{
+    for (int i = 0; i < len; i++)
+        printf("%d ",array[i]);;
+}
+int aScan(int* in, int* out, int n)
+{
+    unsigned int pos_out = 0;
+    for(int i = 0; i < n; i++)
+    {
+        if (in[i]>99 & in[i]/10%10 == 0)
+        {
+            out[pos_out] = in[i];
+            pos_out++;
+        }
+    }
+    return pos_out;
+}
+int main(int argc, const char * argv[])
+{
+    enum {aSize = 10};
+    int array_in[aSize] = {0};
+    int array_out[aSize] = {0};
+    for(int i=0; i < aSize; i++)
+        scanf("%d", &array_in[i]);
+    aPrint(array_out, aScan (array_in, array_out, aSize));
     printf("\n");
     return 0;
 }
