@@ -113,7 +113,7 @@ int main(int argc, const char * argv[])
     return 0;
 }
 */
-/* Задача 5 */
+/* Задача 5
 
 #include <stdio.h>
 void aPrint(int *array, int len)
@@ -142,6 +142,46 @@ int main(int argc, const char * argv[])
     for(int i=0; i < aSize; i++)
         scanf("%d", &array_in[i]);
     aPrint(array_out, aScan (array_in, array_out, aSize));
+    printf("\n");
+    return 0;
+}
+*/
+/* Задача 6 */
+#include <stdio.h>
+#define SIZE 10
+
+int mostly(int* in,int len)
+{
+    int count[len];
+    for(int i=0;i<len;i++)
+        count[i]=0;
+    int max = 0, numberMax = 0;
+    for(int i = 0; i < len; i++)
+        for(int j = i + 1; j < len; j++)
+            if(in[i] == in[j])
+                count[i]++;
+    for(int i = 0; i < len; i++)
+        if(count[i] > max)
+        {
+            max = count[i];
+            numberMax = i;
+        }
+    return in[numberMax];
+}
+
+int Input(int array[], int n)
+{
+    int i;
+    for(i = 0; i < n; i++)
+        scanf("%d",&array[i]);
+    return i;
+}
+
+int main(int argc, const char * argv[])
+{
+int in[SIZE];
+    Input(in,SIZE);
+    printf("%d ", mostly(in,SIZE));
     printf("\n");
     return 0;
 }
